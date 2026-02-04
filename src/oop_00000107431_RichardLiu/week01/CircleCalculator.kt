@@ -8,17 +8,14 @@ fun main(args: Array<String>) {
     // Calculation (Ubah var menjadi val dan hapus tipe data ekspilit)
     val area = pi * radius * radius
 
-    // Output String Template (Ubah println menjadi String Template)
-    println("Radius: $radius, Area: $area")
-
-    // Logic check
-    checkSize(area)
+    // Output String Template (Ubah println menjadi String Template) + Panggil fungsi checksize didalam println
+    println("Radius: $radius, Area: $area, ${checkSize(area)}")
 }
 
-fun checkSize(area: Double) {
+// Mengubah signature
+fun checkSize(area: Double) =
     if (area > 100){
-        println("This is a Big Circle")
+        "This is a Big Circle"
     } else {
-        println("This is a Small Circle")
+        "This is a Small Circle"
     }
-}
