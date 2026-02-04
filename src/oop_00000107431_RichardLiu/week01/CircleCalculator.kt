@@ -1,15 +1,15 @@
 package oop_00000107431_RichardLiu.week01
 
 fun main(args: Array<String>) {
-    // Variable definition
-    var radius: Double = 7.0
-    var pi: Double = 3.14
+    // Variable definition (Ubah var menjadi val, dan hapus tipe data ekspilit)
+    val radius = 7.0
+    val pi = 3.14
 
-    // Calculation
-    var area: Double = pi * radius * radius
+    // Calculation (Ubah var menjadi val dan hapus tipe data ekspilit)
+    val area = pi * radius * radius
 
-    // Output Concatenation
-    println("Radius: " + radius + ", Area: " + area)
+    // Output String Template (Ubah println menjadi String Template)
+    println("Radius: $radius, Area: $area")
 
     // Logic check
     checkSize(area)
