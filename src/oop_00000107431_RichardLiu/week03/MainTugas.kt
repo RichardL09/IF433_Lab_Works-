@@ -17,4 +17,17 @@ fun main() {
     sword.damage = 9999
     println("Damage sekarang: ${sword.damage}")
     println("Tier sekarang: ${sword.tier}")
+
+    println("\n========================")
+    println("=== TEST PLAYER ===")
+
+    val player = Player("Wanyen")
+
+    // player.xp = 100  ❌ ERROR (tidak bisa, karena private)
+
+    player.addXp(50)
+    println("Level sekarang: ${player.level}")
+
+    player.addXp(60)
+    println("Level sekarang: ${player.level}")
 }
