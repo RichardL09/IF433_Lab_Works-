@@ -16,7 +16,7 @@ fun main() {
         // Smart Casting dengan is dan when
         when(pegawai) {
             is Dosen -> {
-                println("=> Terdeteksi sebagai Dosen (NIDN: ${pegawai.nidn}")
+                println("=> Terdeteksi sebagai Dosen (NIDN: ${pegawai.nidn})")
                 pegawai.mengajar() // Smart cast! Tidak perlu manual casting (as)
             }
             is Admin -> {
