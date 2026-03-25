@@ -44,4 +44,10 @@ fun main() {
     println("=== TEST GAME MANAGER ===")
     GameManager.startGame()
     GameManager.startGame() // test singleton
+
+    println("\n=== TEST ENUM & FACTORY ===")
+    println("Drop chance LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}%")
+
+    val starterWeapon = Weapon.forgeStarterSword()
+    println("Starter Weapon: $starterWeapon")
 }
