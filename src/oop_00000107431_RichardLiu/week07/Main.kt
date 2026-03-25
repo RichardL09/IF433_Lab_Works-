@@ -1,5 +1,7 @@
 package oop_00000107431_RichardLiu.week07
 
+import oop_00000107431_RichardLiu.week07.SystemStates.ApiResponse
+
 fun main() {
     println("=== TEST SINGLETON ===")
     println("Status: ${DatabaseManager.connectionStatus}")
@@ -26,4 +28,13 @@ fun main() {
 
     val (userName, userAge) = data1 // Destructing Declaration
     println("Destructed: $userName berumur $userAge")
+
+    println("\n=== TEST SEALED CLASS ===")
+    val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik !")
+
+    // ERROR: 'when' expression must be exhaustive
+    val uiMessage = when(response) {
+        is ApiResponse.Success -> "Tampilkan: ${response.data}"
+        is ApiResponse.Error -> "Munculkan alert: ${response.message}"
+    }
 }
