@@ -39,4 +39,9 @@ fun main() {
         is ApiResponse.Loading -> "Tampilkan Spinner"
     }
     println(uiMessage)
+
+    println("\n=== TUGAS ===")
+    println("=== TEST GAME MANAGER ===")
+    GameManager.startGame()
+    GameManager.startGame() // test singleton
 }
