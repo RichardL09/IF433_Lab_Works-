@@ -12,7 +12,5 @@ fun main() {
     Hitungan.pindah_halaman("Profile")
 
     val siswa = Murid("Andi", "123", 2024)
-    val siswa2 = siswa.copy(nama="Ani", nim="431")
     println(siswa)
-    println(siswa2)
 }
