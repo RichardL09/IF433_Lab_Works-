@@ -1,10 +1,9 @@
 package oop_00000107431_RichardLiu.week08
 
 fun main() {
-    println("=== TEST SAFE CALL & ELVIS ===")
+    println("=== TEST SAFE CALLS & ELVIS ===")
     val emptyOrder = Order(null, null)
 
-    // Rantai Safe Calls yang elegan
     val destination = emptyOrder.deliveryDetails?.address?.city?.name ?: "Kota Tidak Diketahui"
     println("Tujuan pengiriman: $destination")
 
@@ -12,9 +11,8 @@ fun main() {
     val validOrder = Order(null, 250000)
 
     val receipt = validOrder.totalPrice?.let { price ->
-        // Blok ini HANYA jalan jika totalPrice tidak null
         val tax = price * 0.11
-        "Transaksi Valid. Harga: Rp$price, Pajak: $tax"
+        "Transaksi Valid. Harga: Rp$price, Pajak: Rp$tax"
     } ?: "Transaksi Invalid: Harga belum di-set!"
 
     println(receipt)
@@ -22,9 +20,18 @@ fun main() {
     println("\n=== TEST SAFE CASTING ===")
     val mixedData: List<Any> = listOf(
         "Smartphone",
-        150000,
+        1500000,
         UserProfile("Andi", null),
         "Laptop",
-        450000.0
+        4500000.0
     )
+
+    for (item in mixedData) {
+        val text = item as? String
+
+        // Hanya cetak jika cast sukses (text tidak null)
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+    }
 }
