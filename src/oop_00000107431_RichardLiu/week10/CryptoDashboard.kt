@@ -28,3 +28,12 @@ fun main() {
         println("Transaction ID: ${it.id}, Amount: ${it.amount}")
     }
 }
+
+// Output Status: 200 OK
+//Coin: BTC, Balance: 1.25
+//Coin: ETH, Balance: 12.5
+//Coin: USDT, Balance: 5000.0
+//
+//Transaction List:
+//Transaction ID: TX001, Amount: 250000.0
+//Transaction ID: TX002, Amount: 500000.0
