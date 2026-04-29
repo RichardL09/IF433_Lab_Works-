@@ -23,6 +23,12 @@ class kalkulator<T: Number>(val a:T, val b:T) {
     }
 }
 
+// Generic - WHERE
+val arNilai = listOf(60, 70, 85, 75, 63, 83, 92, 76, 46, 71)
+fun <T> nilaiDiatasKKM(list: List<T>, kkm:T): List<T> where T: Comparable<T>{
+    return list.filter {it >= kkm}
+}
+
 
 fun main() {
     // Implementasi Non-Generic
@@ -42,10 +48,15 @@ fun main() {
     println("Barcode " + tv.kodeBarcode + 77777)
 
     println("\n======= Generic Function =======")
-    println("Kode pos kamu" + Alamat(154133))
+    println("Kode pos kamu " + Alamat(154133))
 
     println("\n======= Generic - Kalkulator =======")
     val kal = kalkulator(10.5, 20.5)
-    println("Hasil Penambahan: " + kal.tambah())
-    println("Hasil Pengurangan: " + kal.kurang())
+    println("Hasil Penambahan: ${kal.a} ditambah ${kal.b}" + kal.tambah())
+    println("Hasil Pengurangan: ${kal.a} dikurang ${kal.b}" + kal.kurang())
+
+    println("\n======= Generic - Where ======")
+    println("Semua nilai: " + arNilai)
+    var nilaikkm = nilaiDiatasKKM(arNilai, 70)
+    println("Nilai diatas KKM: " + nilaikkm)
 }
