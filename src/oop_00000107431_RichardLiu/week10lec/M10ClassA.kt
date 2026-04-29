@@ -14,6 +14,15 @@ fun <T> Alamat(kodePos:T):T {
     return kodePos
 }
 
+// Generic - Cosntraint
+class kalkulator<T: Number>(val a:T, val b:T) {
+    fun tambah():Int {
+        return a.toInt() + b.toInt()
+    } fun kurang(): Double {
+        return a.toDouble() - b.toDouble()
+    }
+}
+
 
 fun main() {
     // Implementasi Non-Generic
@@ -34,4 +43,9 @@ fun main() {
 
     println("\n======= Generic Function =======")
     println("Kode pos kamu" + Alamat(154133))
+
+    println("\n======= Generic - Kalkulator =======")
+    val kal = kalkulator(10.5, 20.5)
+    println("Hasil Penambahan: " + kal.tambah())
+    println("Hasil Pengurangan: " + kal.kurang())
 }
