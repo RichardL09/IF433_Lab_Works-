@@ -66,3 +66,40 @@ class SafeOrderProcessor(
         notifier.sendNotification(itemName)
     }
 }
+
+// =============================================
+// FIX OCP — PricingStrategy
+// =============================================
+
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double) = price
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double) = price * 0.90 // Diskon 10%
+}
+
+// Contoh ekstensi baru tanpa ubah SafeOrderProcessor sama sekali
+class FlashSalePricing : PricingStrategy {
+    override fun calculate(price: Double) = price * 0.50 // Diskon 50%
+}
+
+// main untuk demo keseluruhan pipeline
+fun main() {
+    val repo     = CsvOrderRepository()
+    val notifier = EmailNotifier()
+    val processor = SafeOrderProcessor(repo, notifier)
+
+    val vipStrategy       = VipPricing()
+    val regularStrategy   = RegularPricing()
+    val flashSaleStrategy = FlashSalePricing()
+
+    println("=== E-COMMERCE ORDER PROCESSING ===")
+    processor.processOrder("MacBook Pro", vipStrategy.calculate(25000000.0),     "VIP")
+    processor.processOrder("iPhone 15",   regularStrategy.calculate(15000000.0), "REGULAR")
+    processor.processOrder("AirPods",     flashSaleStrategy.calculate(3000000.0),"FLASH_SALE")
+}
